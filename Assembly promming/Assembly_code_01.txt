@@ -1,0 +1,15 @@
+TRAI2	START	
+	CALL XY		;call method XY
+	LD GR3,GR1	;input parameter GR1=BUF in GR3
+	CALL XY		;call method XY
+	LD GR4,GR1	;input parameter GR1=BUF in GR4
+	ADDA GR3,GR4	;Sum GR3 and GR4
+	LD GR5,GR3	;input GR2 in GR5
+	RET		
+XY	START		;name method = XY, Start = start function
+	IN BUF,ILEN	;message box input data
+	LD GR1,BUF	;input BUF in GR1
+	AND GR1,=#000F	;convert GR1 to int
+	RET
+BUF	DS	1	;define storage
+ILEN   	DC	1	;define constant
